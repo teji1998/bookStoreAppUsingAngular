@@ -1,0 +1,108 @@
+.card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    width: 500px;
+    
+}
+.main{
+    text-align: center;
+    padding: 70px 0;
+  }
+  .mat-card-subtitle{
+    font-weight: bold;
+    color: black;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .i{
+    margin-top: 20%;
+  }
+  .signIn{
+    color: #4586ee;
+    font-weight: bold;
+    cursor: pointer;
+    // margin-top: 20%;
+  }
+  
+  .main{
+    min-height:-webkit-fill-available !important;
+  }
+  .card :hover{
+    background-color: #ffa500;
+    transform: scale(1.1); 
+    
+   }
+   .service{
+    margin-left: 36px;
+    margin-top: 36px;
+  }
+  .message{
+    margin-top: 8px;
+  }
+  
+  
+  
+  
+  .selected{
+    background-color: #e6ac00;
+    width: fit-content;
+    max-width: 144px;
+  
+  .insideMat{
+     margin-left: -36px;
+     margin-top: -36px;
+     min-height: 212px;
+  }
+  
+  }
+  .notSelected{
+    background-color: #b8b5ae;
+    width: fit-content;
+    max-width: 144px;
+  
+    .insideMat{
+        margin-left: -36px;
+        margin-top: -36px;
+     min-height: 212px;
+  
+    }
+
+    .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 500px;
+    }
+   
+}
+
+.register{
+    background: brown;
+}
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    background: scroll;
+    width: max-content;
+    display: inline-block;
+}
+
+.header{
+  justify-content: center;
+  background-color: brown;
+  color: white;
+  font-size: large;
+}
+
+.mat-raised-button.my-custom-class{
+  background-color: brown;
+}
