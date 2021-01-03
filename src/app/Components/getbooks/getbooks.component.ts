@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BookserviceService} from '../../Services/BookService/bookservice.service'
 
 @Component({
   selector: 'app-getbooks',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetbooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService : BookserviceService ) { }
 
-  booksArray=[]
+  //booksArray=[]
+  booksArray: Array<any> = [];
+
+
   ngOnInit() {
     this.getAllBooks();
   }
@@ -19,15 +23,14 @@ export class GetbooksComponent implements OnInit {
       console.log(response);
       this.booksArray=response['result']
       console.log(" books array " ,this.booksArray);
-      
-      
     })
 }
 addcart(){
-  
+
 }
 
 review() {
   return Math.floor(Math.random() * (5 - 1) + 1)
 }
+
 }
