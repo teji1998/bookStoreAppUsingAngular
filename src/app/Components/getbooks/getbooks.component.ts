@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BookserviceService} from '../../Services/BookService/bookservice.service'
+import {BookserviceService} from '../../Services/BookService/bookservice.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-getbooks',
@@ -8,7 +9,7 @@ import {BookserviceService} from '../../Services/BookService/bookservice.service
 })
 export class GetbooksComponent implements OnInit {
 
-  constructor(private bookService : BookserviceService ) { }
+  constructor(private bookService : BookserviceService ,private router:Router) { }
 
   //booksArray=[]
   booksArray: Array<any> = [];
@@ -26,6 +27,7 @@ export class GetbooksComponent implements OnInit {
     })
 }
 addcart(){
+  this.router.navigate(['mycart']);
 
 }
 

@@ -23,6 +23,9 @@ import { HeadersComponent } from './Components/headers/headers.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
+import { MycartComponent } from './Components/mycart/mycart.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -34,14 +37,16 @@ import {MatTableModule} from '@angular/material/table';
     HeaderComponent,
     FooterComponent,
     OrderComponent,
-    HeadersComponent
+    HeadersComponent,
+    MycartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,HttpClientModule,MatToolbarModule,
     MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,ReactiveFormsModule,
-    FormsModule,MatButtonModule,MatTableModule,MatTooltipModule,MatBadgeModule
+    FormsModule,MatButtonModule,MatTableModule,MatTooltipModule,MatBadgeModule,
+    MatExpansionModule,MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

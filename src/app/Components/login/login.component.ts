@@ -9,7 +9,6 @@ import {UserserviceService} from '../../Services/UserService/userservice.service
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  title='Book Store Registration'
   hide=true
   loginForm!: FormGroup;
 
