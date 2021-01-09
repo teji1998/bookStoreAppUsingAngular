@@ -1,38 +1,134 @@
 <app-header></app-header>
 <mat-accordion>
     <div>
-        <mat-expansion-panel hideToggle class="center">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  class="center">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     My cart
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div>
+            <div *ngFor="let book of books;let i=index">
                 <div style="display: flex;">
                     <span>
-                        <img src="../../../assets/images//hp.jpg" class="image">
+                       <!-- <img src="../../../assets/images/hp.jpg" class="image">-->
+                        <img mat-panel-image src={{book.bookImage}} class="image">
                     </span>
                     <span class="position">
-                        <mat-card-title>Harry Potter </mat-card-title>
-                        <mat-card-subtitle><br>By J.K.Rowling</mat-card-subtitle>
-                        <mat-card-content><br>2500<br></mat-card-content>
-                        <button mat-icon-button>
+                        <mat-card-title>{{book.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
+                        <button mat-icon-button (click)="remove(i)">
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
-                        2500
-                        <button mat-icon-button>
+                        {{num}}
+                        <button mat-icon-button (click)=addItem(i)>
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
-                        <button mat-stroked-button>
-                            Remove
+                        <button mat-stroked-button (click)="removeCartItem(book)">
+                            remove
                         </button>
                     </span>
                 </div>
             </div>
             <mat-action-row>
-                <button mat-button color="primary" ></button>
+                <button mat-button color="primary" (click)="nextStep()">Place order</button>
             </mat-action-row>
 
         </mat-expansion-panel>
     </div>
 </mat-accordion>
+
+<mat-accordion>
+    <div class="main">
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Customer Details</mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="customerForm">
+                <div class="mat-div">
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput type="text" placeholder="firstName" formControlName="firstName"
+                                id="fisrtName">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone number</mat-label>
+                            <input matInput type="text" placeholder="PhoneNumber" formControlName="PhoneNumber"
+                                id="PhoneNumber">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Pin Code</mat-label>
+                            <input matInput type="text" placeholder="PinCode" formControlName="PinCode" id="PinCode">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Locality</mat-label>
+                            <input matInput type="text" placeholder="Locality" formControlName="Locality" id="Locality">
+                        </mat-form-field>
+                    </div>
+                    <div class="address-div">
+                        <mat-form-field class="address-field" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput type="text" placeholder="Address" formControlName="Address"
+                                id="Address"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City/Town</mat-label>
+                            <input matInput type="text" placeholder="City/Town" formControlName="City"
+                                id="City/Town">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>LandMark</mat-label>
+                            <input matInput type="text" placeholder="LandMark" formControlName="LandMark" id="LandMark">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-radio-group aria-label="Type">
+                            <div class="mat-radio">
+                                <mat-radio-button value="1">Home</mat-radio-button>
+                            <mat-radio-button value="2">Work</mat-radio-button>
+                            <mat-radio-button value="2">Other</mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Continue</button>
+                </mat-action-row>  
+
+            </form>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
+
+<mat-accordion>
+    <div>
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle class="center">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Order Summary
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let book of books">
+                <div style="display: flex;">
+                    <span>
+                        <img mat-panel-image src="../../../assets/images/hp.jpg" class="image">
+                    </span>
+                    <span class="position">
+                        <mat-card-title>{{book.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
+                    </span>
+                </div>
+            </div>
+            <mat-action-row>
+                <button mat-button color="primary" (click)="checkout()">Checkout</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
+<app-footer class="footer"></app-footer>

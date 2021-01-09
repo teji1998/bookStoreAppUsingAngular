@@ -14,7 +14,7 @@ children:[
   {path:'',component:GetbooksComponent},
 ]
 },{path:'order',component:OrderComponent},
-{path:'mycart',component:MycartComponent}];
+{path:'cart',component:MycartComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

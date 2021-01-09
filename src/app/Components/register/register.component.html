@@ -1,4 +1,4 @@
-<app-header title="BOOK STORE REGISTRATION"></app-header>
+<app-headers title="BOOK STORE REGISTRATION"></app-headers>
 <!-- <p class="header">BOOK STORE REGISTRATION</p> -->
 <div class="main" fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100" fxFlexOffset.xs="0" fxFlex.xs="100">
     <mat-card fxFlex.xs="100">
@@ -43,11 +43,11 @@
                         <div>
                             <mat-form-field appearance="outline" fxFlex="91" fxFlex.xs="100">
                                 <mat-label>MobileNumber</mat-label>
-                                <input matInput type="text" placeholder="mobilenumber" class="mobilenumber" formControlName="mobilenumber"
-                                    id="mobilenumber">
-                                <mat-error *ngIf="registerForm.hasError('mobilenumber', 'required')">Number is required
+                                <input matInput type="text" placeholder="phone" class="mobilenumber" formControlName="phone"
+                                    id="phone">
+                                <mat-error *ngIf="registerForm.hasError('phone', 'required')">Number is required
                                 </mat-error>
-                                <mat-error *ngIf="registerForm.hasError('mobilenumber', 'mobilenumber')">invalid Numbers</mat-error>
+                                <mat-error *ngIf="registerForm.hasError('phone', 'phone')">invalid Numbers</mat-error>
                                 <mat-hint></mat-hint>
                                 <mat-icon matSuffix>phone</mat-icon>
                             </mat-form-field>

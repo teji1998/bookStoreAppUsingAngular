@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {UserserviceService} from '../../Services/UserService/userservice.service';
+//import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,10 @@ import {UserserviceService} from '../../Services/UserService/userservice.service
 export class LoginComponent implements OnInit {
   hide=true
   loginForm!: FormGroup;
+  token:any;
 
-  constructor(private router:Router,private userservice:UserserviceService,private formBuilder:FormBuilder) { }
+  constructor(private router:Router,private userservice:UserserviceService,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -32,8 +35,9 @@ export class LoginComponent implements OnInit {
 
     }
     console.log(reqData);
-    this.userservice.login(reqData).subscribe((response)=>{
-      console.log("login sucessfull",response)
+    this.userservice.login(reqData).subscribe((response:any)=>{
+      console.log("login sucessfull",response['token']);
+      localStorage.setItem('token',response['token']);
       this.router.navigate(['dashboard'])
     })
     
