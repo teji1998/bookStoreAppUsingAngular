@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   header!: FormGroup;
   name:any;
   email:any;
-  bag=0;
+  @Input() bag: any;
   list:any;
   constructor(private formbuilder : FormBuilder) { }
 
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
     this.header=this.formbuilder.group({
       dataa:[""]
     })
+    console.log("length of bag count",this.bag);
   }
 
 }
